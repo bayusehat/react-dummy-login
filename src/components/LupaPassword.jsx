@@ -1,9 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faGear, faEye} from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
-class LupaPassword extends Component{
-    render(){
+function LupaPassword(){
         return(
         <div className="container mt-3">
             <div className="row">
@@ -29,5 +28,4 @@ class LupaPassword extends Component{
         </div>
         );
     }
-}
 export default LupaPassword;

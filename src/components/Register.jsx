@@ -1,9 +1,25 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faGear, faEye, faMailBulk} from '@fortawesome/free-solid-svg-icons';
+import { faUser, faGear, faMailBulk} from '@fortawesome/free-solid-svg-icons';
 
-class Register extends Component{
-    render(){
+function Register(){
+        const [username,setUsername] = useState("");
+        const [nama,setNama] = useState("");
+        const [email,setEmail] = useState("");
+        const [password,setPassword] = useState("");
+        const addMahasiswa = () => {
+            const newMahasiswa = {username,nama,email,password }
+            fetch('http://localhost:8000/user', {
+                      method: 'POST',
+                      headers: {
+                          "Content-Type": "application/json"
+                      },
+                      body: JSON.stringify(newMahasiswa)
+                  }).then(() => {
+                      alert('datamu berhasil disimpan!')
+                  });
+            }
+          
         return(
         <div className="container mt-3">
             <div className="row">
@@ -18,25 +34,25 @@ class Register extends Component{
                                     <label>
                                         <FontAwesomeIcon icon={faUser} />
                                         Username : </label>
-                                    <input type="text" className="form-control" placeholder="Masukan username anda"  required/>
+                                    <input type="text" className="form-control" placeholder="Masukan username anda" value={username} onChange={(e) => setUsername(e.target.value)}  required/>
                                 </div>
                                 <div className="form-group text-left">
                                     <label>
                                         <FontAwesomeIcon icon={faUser} />
                                         Nama : </label>
-                                    <input type="text" className="form-control" placeholder="Masukan username anda"  required/>
+                                    <input type="text" className="form-control" placeholder="Masukan nama anda" value={nama} onChange={(e) => setNama(e.target.value)} required/>
                                 </div>
                                 <div className="form-group text-left">
                                     <label>
                                         <FontAwesomeIcon icon={faMailBulk} />
                                         Email : </label>
-                                    <input type="email" className="form-control" placeholder="Masukan username anda"  required/>
+                                    <input type="email" className="form-control" placeholder="Masukan e-mail anda" value={email} onChange={(e) => setEmail(e.target.value)} required/>
                                 </div>
                                 <div className="form-group text-left">
                                     <label> <FontAwesomeIcon icon={faGear} /> Password :</label>
-                                    <input type="password" className="form-control" placeholder="Password" />
+                                    <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
                                 </div>
-                                <button type="submit" className="btn btn-success btn-sm btn-block">Register</button>
+                                <button type="submit" className="btn btn-success btn-sm btn-block" onClick={addMahasiswa}>Register</button>
                             </form>
                         </div>
                     </div>
@@ -45,5 +61,4 @@ class Register extends Component{
         </div>
         );
     }
-}
 export default Register;

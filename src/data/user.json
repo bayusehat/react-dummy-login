@@ -1,0 +1,25 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "username": "dollah123",
+      "nama": "Dollah Caem",
+      "email": "dollah@gmail.com",
+      "password": "telotelook24"
+    },
+    {
+      "id": 2,
+      "username": "sehatwalafiat223",
+      "nama": "Sehat Prakoso",
+      "email": "sehatabiz@gmail.com",
+      "password": "Hello123"
+    },
+    {
+      "username": "hendro123",
+      "nama": "Hendro",
+      "email": "hendro@gmail.com",
+      "password": "hendroganengbaet",
+      "id": 3
+    }
+  ]
+}

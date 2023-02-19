@@ -1,9 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faGear, faEye} from '@fortawesome/free-solid-svg-icons';
 
-class Login extends Component{
-    render(){
+function Login(){
         return(
         <div className="container mt-3">
             <div className="row">
@@ -37,5 +36,4 @@ class Login extends Component{
         </div>
         );
     }
-}
 export default Login;
