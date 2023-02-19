@@ -18,7 +18,7 @@ class Login extends Component{
                                     <label>
                                         <FontAwesomeIcon icon={faUser} />
                                         Username : </label>
-                                    <input type="email" className="form-control" placeholder="Masukan username anda"  required/>
+                                    <input type="text" className="form-control" placeholder="Masukan username anda"  required/>
                                 </div>
                                 <div className="form-group text-left">
                                     <label for="exampleInputPassword1"> <FontAwesomeIcon icon={faGear} /> Password : </label>

@@ -18,7 +18,7 @@ class LupaPassword extends Component{
                                     <label>
                                         <FontAwesomeIcon icon={faUser} />
                                         Email : </label>
-                                    <input type="email" className="form-control" placeholder="Masukan E-mail anda"  required/>
+                                    <input type="enail" className="form-control" placeholder="Masukan E-mail anda"  required/>
                                 </div>
                                 <button type="submit" className="btn btn-success btn-sm btn-block">Reset Password</button>
                             </form>

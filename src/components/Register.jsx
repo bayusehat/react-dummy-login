@@ -18,13 +18,13 @@ class Register extends Component{
                                     <label>
                                         <FontAwesomeIcon icon={faUser} />
                                         Username : </label>
-                                    <input type="email" className="form-control" placeholder="Masukan username anda"  required/>
+                                    <input type="text" className="form-control" placeholder="Masukan username anda"  required/>
                                 </div>
                                 <div className="form-group text-left">
                                     <label>
                                         <FontAwesomeIcon icon={faUser} />
                                         Nama : </label>
-                                    <input type="email" className="form-control" placeholder="Masukan username anda"  required/>
+                                    <input type="text" className="form-control" placeholder="Masukan username anda"  required/>
                                 </div>
                                 <div className="form-group text-left">
                                     <label>
