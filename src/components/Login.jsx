@@ -1,8 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faGear, faEye} from '@fortawesome/free-solid-svg-icons';
 
 function Login(){
+    const navigate = useNavigate();
+    const {register, formState: { errors }, handleSubmit } = useForm();
+    const [auth,setAuth] = useState(localStorage.getItem(localStorage.getItem("authenticated") || false));
+    const onSubmit = (myJson) => {
+        fetch("http://localhost:8000/user")
+        .then((res) => {
+            return res.json();
+        })
+        .then((data) => {
+            const user = data.find(row => { return row.username === myJson.username && row.password === myJson.password});
+            if(user){
+                setAuth(true)
+                localStorage.setItem('authenticated',true);
+                localStorage.setItem('username',myJson.username);
+                alert('Login berhasil')
+                navigate("/dashboard",{ replace: true });
+            }else{
+                alert('Data tidak ditemukan')
+            }
+        })
+        .catch((err) => {
+            if (err.name === "AbortError") {
+            console.log("fetch aborted.");
+            }
+        });
+    }
         return(
         <div className="container mt-3">
             <div className="row">
@@ -12,18 +40,21 @@ function Login(){
                             <h3 className="panel-title">Login</h3>
                         </div>
                         <div className="panel-body">
-                            <form>
+                            <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="form-group text-left">
                                     <label>
                                         <FontAwesomeIcon icon={faUser} />
                                         Username : </label>
-                                    <input type="text" className="form-control" placeholder="Masukan username anda"  required/>
+                                    <input type="text" className="form-control" placeholder="Masukan username anda" {...register("username", { required: true, maxLength: 20 })} aria-invalid={errors.username ? "true" : "false"} />
+                                    {errors.username?.type === 'required' && <p role="alert">Username is required</p>}
+
                                 </div>
                                 <div className="form-group text-left">
-                                    <label for="exampleInputPassword1"> <FontAwesomeIcon icon={faGear} /> Password : </label>
-                                    <input type="password" className="form-control" placeholder="Password" />
+                                    <label htmlFor="exampleInputPassword1"> <FontAwesomeIcon icon={faGear} /> Password : </label>
+                                    <input type="password" className="form-control" placeholder="Password" {...register("password", { required: true, maxLength: 20 })} aria-invalid={errors.password ? "true" : "false"}/>
+                                    {errors.password?.type === 'required' && <p role="alert">Password is required</p>}
                                 </div>
-                                <button type="submit" className="btn btn-success btn-sm btn-block">LOGIN ADMIN</button>
+                                <input type="submit" className="btn btn-success btn-sm btn-block" value="LOGIN ADMIN" />
                                 <a href={`register`} className="btn btn-info btn-sm btn-block"> Register Mahasiswa Baru</a>
                             </form>
                         </div>

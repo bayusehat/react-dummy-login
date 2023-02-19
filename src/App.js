@@ -1,11 +1,13 @@
 import './App.css';
-import Login from './components/Login';
-import Register from './components/Register';
-import LupaPassword from './components/LupaPassword';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Login from './components/Login';
+import Register from './components/Register';
+import LupaPassword from './components/LupaPassword';
+
+import Dashboard from './components/Dashboard';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,6 +20,10 @@ const router = createBrowserRouter([
   {
     path : '/lupapassword',
     element : <LupaPassword />,
+  },
+  {
+    path : '/dashboard',
+    element : <Dashboard />
   }
 ]);
 
