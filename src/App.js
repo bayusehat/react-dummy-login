@@ -6,8 +6,9 @@ import {
 import Login from './components/Login';
 import Register from './components/Register';
 import LupaPassword from './components/LupaPassword';
-
 import Dashboard from './components/Dashboard';
+import GantiPassword from './components/GantiPassword';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path : '/dashboard',
     element : <Dashboard />
+  },
+  {
+    path : '/changepassword/:userId',
+    element : <GantiPassword />
   }
 ]);
 

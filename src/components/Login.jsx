@@ -19,6 +19,7 @@ function Login(){
                 setAuth(true)
                 localStorage.setItem('authenticated',true);
                 localStorage.setItem('username',user.username);
+                localStorage.setItem('id',user.id);
                 alert('Login berhasil');
                 navigate("/dashboard",{ replace: true });
             }else{
