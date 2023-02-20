@@ -20,6 +20,13 @@
       "email": "hendro@gmail.com",
       "password": "hendroganengbaet",
       "id": 3
+    },
+    {
+      "username": "admn",
+      "nama": "admin",
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "id": 4
     }
   ]
 }
